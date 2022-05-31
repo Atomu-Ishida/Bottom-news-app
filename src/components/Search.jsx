@@ -21,7 +21,6 @@ function Search() {
           form='text'
           value={input}
         />
-        <button>検索</button>
       </div>
     </FormStyle>
   );
