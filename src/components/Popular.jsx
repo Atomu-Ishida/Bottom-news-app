@@ -23,7 +23,6 @@ function Popular() {
       const data = await api.json();
 
       localStorage.setItem('popular', JSON.stringify(data.recipes));
-      console.log(data);
       setPopular(data.recipes);
     }
   };
@@ -68,7 +67,8 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 10rem;
+  min-width: 13rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;

@@ -20,10 +20,10 @@ function Recipe() {
   };
   return (
     <DetailWrapper>
-      <div>
+      <DetailDiv>
         <h2>{details.title}</h2>
         <img src={details.image} alt={details.title} />
-      </div>
+      </DetailDiv>
       <Info>
         <Button
           className={activeTab === 'instruments' ? 'active' : ''}
@@ -39,8 +39,8 @@ function Recipe() {
         </Button>
         {activeTab === 'instruments' && (
           <div>
-            <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-            <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+            <h4 dangerouslySetInnerHTML={{ __html: details.summary }}></h4>
+            <h4 dangerouslySetInnerHTML={{ __html: details.instructions }}></h4>
           </div>
         )}
 
@@ -68,16 +68,26 @@ const DetailWrapper = styled.div`
     margin-bottom: 2rem;
   }
   li {
-    font-size: 1.2rem;
-    line-height: 2.5rem;
+    font-size: 20px;
+    line-height: 1.5rem;
   }
   ul {
     margin-top: 2rem;
   }
 `;
 
+const DetailDiv = styled.div`
+  img {
+    width: 25rem;
+    height: 22rem;
+  }
+  h2 {
+    font-size: 20px;
+  }
+`;
+
 const Button = styled.button`
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   color: #313131;
   background: white;
   border: 2px solid black;
@@ -86,7 +96,7 @@ const Button = styled.button`
 `;
 
 const Info = styled.div`
-  margin-left: 10rem;
+  margin-left: 5rem;
 `;
 
 export default Recipe;

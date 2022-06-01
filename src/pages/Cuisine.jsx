@@ -7,18 +7,18 @@ function Cuisine() {
   const [cuisine, setCuisine] = useState([]);
   let params = useParams();
 
-  useEffect(() => {
-    getCuisine(params.type);
-    console.log(params.type);
-  }, [params.type]);
-
   const getCuisine = async (name) => {
     const api = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8&cuisine=${name}`
     );
     const data = await api.json();
+
     setCuisine(data.recipes);
   };
+
+  useEffect(() => {
+    getCuisine(params.type);
+  }, [params.type]);
 
   return (
     <Grid
@@ -28,14 +28,16 @@ function Cuisine() {
       transition={{ duration: 0.5 }}
     >
       {cuisine.map((item) => {
-        return (
-          <Card key={item.id}>
-            <Link to={'/recipe/' + item.id}>
-              <img src={item.image} alt={item.title} />
-              <h4>{item.title}</h4>
-            </Link>
-          </Card>
-        );
+        if (item.image) {
+          return (
+            <Card key={item.id}>
+              <Link to={'/recipe/' + item.id}>
+                <img src={item.image} alt={item.title} />
+                <h4>{item.title}</h4>
+              </Link>
+            </Card>
+          );
+        }
       })}
     </Grid>
   );
@@ -43,7 +45,7 @@ function Cuisine() {
 
 const Grid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-gap: 3rem;
 `;
 

@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion';
 
 function Pages() {
   const location = useLocation();
+
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes Location={location} key={location.pathname}>

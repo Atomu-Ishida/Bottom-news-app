@@ -39,6 +39,7 @@ const List = styled.div`
 const SLink = styled(NavLink)`
   display: flex;
   flex-direction: column;
+  text-decoration: none;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
