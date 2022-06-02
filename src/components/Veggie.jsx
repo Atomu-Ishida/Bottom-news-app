@@ -12,20 +12,14 @@ function Veggie() {
   }, []);
 
   const getVeggie = async () => {
-    const check = localStorage.getItem('veggie');
+    const api = await fetch(
+      `https://newsapi.org/v2/top-headlines?country=jp&category=sports&pageSize=100&apiKey=e50e9828adc84ce48154498bf3a02645`
+    );
+    const data = await api.json();
 
-    if (check) {
-      setVeggie(JSON.parse(check));
-    } else {
-      const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8&tags=vegetarian`
-      );
-      const data = await api.json();
-
-      localStorage.setItem('veggie', JSON.stringify(data.recipes));
-      console.log(data);
-      setVeggie(data.recipes);
-    }
+    localStorage.setItem('veggie', JSON.stringify(data.articles));
+    console.log(data);
+    setVeggie(data.articles);
   };
 
   return (
@@ -41,22 +35,31 @@ function Veggie() {
             gap: '5rem',
           }}
         >
-          {veggie.map((recipe) => {
-            {
-              if (recipe.image)
+          {veggie
+            .slice()
+            .reverse()
+            .map((article) => {
+              {
                 return (
-                  <SplideSlide key={recipe.id}>
+                  <SplideSlide key={article.title}>
                     <Card>
-                      <Link to={'/recipe/' + recipe.id}>
-                        <p>{recipe.title}</p>
-                        <img src={recipe.image} alt={recipe.title} />
+                      <Link
+                        to={'/about'}
+                        state={{
+                          description: article.description,
+                          image: article.urlToImage,
+                          url: article.url,
+                        }}
+                      >
+                        <p>{article.title}</p>
+                        <img src={article.urlToImage} alt={article.title} />
                         <Gradient />
                       </Link>
                     </Card>
                   </SplideSlide>
                 );
-            }
-          })}
+              }
+            })}
         </Splide>
       </Wrapper>
     </div>
@@ -64,11 +67,12 @@ function Veggie() {
 }
 
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  margin: 7rem 0rem;
+  margin-top: 2rem;
 `;
 
 const Card = styled.div`
-  min-height: 10rem;
+  min-height: 18rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -91,7 +95,7 @@ const Card = styled.div`
     width: 100%;
     text-align: center;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.3rem;
     height: 40%;
     display: flex;
     justify-content: center;

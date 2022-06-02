@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 function Recipe() {
   let params = useParams();
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('instruments');
 
   useEffect(() => {
@@ -12,10 +12,12 @@ function Recipe() {
   }, [params.name]);
 
   const fetchDetails = async () => {
+    console.log(params);
     const api = await fetch(
-      `https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?q=${params.name}&apiKey=e50e9828adc84ce48154498bf3a02645`
     );
     const data = await api.json();
+    console.log(data);
     setDetails(data);
   };
   return (
