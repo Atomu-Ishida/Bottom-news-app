@@ -3,7 +3,7 @@ import Category from './components/Category';
 import { BrowserRouter } from 'react-router-dom';
 import Search from './components/Search';
 import styled from 'styled-components';
-import { GiKnifeFork } from 'react-icons/gi';
+import { FaRegNewspaper } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 function App() {
@@ -11,9 +11,12 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <Nav>
-          <GiKnifeFork />
-          <Logo to='/'> delicious</Logo>
+          <FaRegNewspaper />
+          <Logo to='/'> Bottom News</Logo>
         </Nav>
+        <Explanation>
+          トップを飾るようなニュースだけでなく、あまり注目が集まらないニュースにも目を向けて欲しいと思いこのサイトを作りました。
+        </Explanation>
         <Search />
         <Category />
         <Pages />
@@ -30,7 +33,7 @@ const Logo = styled(Link)`
 `;
 
 const Nav = styled.div`
-  padding: 4rem 0rem;
+  padding: 2rem 0rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -39,4 +42,7 @@ const Nav = styled.div`
   }
 `;
 
+const Explanation = styled.p`
+  margin-bottom: 2rem;
+`;
 export default App;

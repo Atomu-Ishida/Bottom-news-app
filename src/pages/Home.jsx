@@ -1,7 +1,6 @@
 import React from 'react';
-import Popular from '../components/Popular';
-import Veggie from '../components/Veggie';
 import { motion } from 'framer-motion';
+import HomeNews from '../components/HomeNews';
 
 function Home() {
   return (
@@ -11,8 +10,7 @@ function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Veggie />
-      {/* <Popular /> */}
+      <HomeNews />
     </motion.div>
   );
 }

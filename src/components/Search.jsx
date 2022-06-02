@@ -7,8 +7,8 @@ function Search() {
   const [input, setInput] = useState('');
   const navigate = useNavigate();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (event) => {
+    event.preventDefault();
     navigate('/searched/' + input);
   };
 
@@ -17,8 +17,10 @@ function Search() {
       <div>
         <FaSearch></FaSearch>
         <input
+          id='search'
+          placeholder='日本語で入力してください'
           onChange={(e) => setInput(e.target.value)}
-          form='text'
+          type='text'
           value={input}
         />
       </div>

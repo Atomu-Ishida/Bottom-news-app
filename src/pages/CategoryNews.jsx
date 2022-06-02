@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Link, useParams } from 'react-router-dom';
 
-function Searched() {
-  const [searchedRecipes, setSearchedRecipes] = useState([]);
+function CategoryNews() {
+  const [categoryNews, setCategoryNews] = useState([]);
   let params = useParams();
 
-  useEffect(() => {
-    getSearched(params.search);
-  }, [params.search]);
-
-  const getSearched = async (search) => {
+  const getCategoryNews = async (name) => {
     const api = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=jp&q=${search}&apikey=${process.env.REACT_APP_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?country=jp&category=${name}&pageSize=100&apiKey=${process.env.REACT_APP_API_KEY}`
     );
     const data = await api.json();
-    console.log(data);
-    setSearchedRecipes(data.articles);
+
+    setCategoryNews(data.articles);
   };
+
+  useEffect(() => {
+    getCategoryNews(params.type);
+  }, [params.type]);
 
   return (
     <Grid
@@ -27,18 +27,12 @@ function Searched() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {searchedRecipes.length === 0 && (
-        <p>
-          記事が見つかりませんでした <br />
-          別のワードで検索してください
-        </p>
-      )}
-      {searchedRecipes
+      {categoryNews
         .slice()
         .reverse()
         .map((article) => {
           return (
-            <Card key={article.title}>
+            <Card>
               <Link
                 to={'/about'}
                 state={{
@@ -80,4 +74,4 @@ const Card = styled(motion.div)`
   }
 `;
 
-export default Searched;
+export default CategoryNews;

@@ -4,28 +4,27 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
 
-function Veggie() {
-  const [veggie, setVeggie] = useState([]);
+function HomeNews() {
+  const [article, setArticle] = useState([]);
 
   useEffect(() => {
-    getVeggie();
+    getArticle();
   }, []);
 
-  const getVeggie = async () => {
+  const getArticle = async () => {
     const api = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=jp&category=sports&pageSize=100&apiKey=e50e9828adc84ce48154498bf3a02645`
+      `https://newsapi.org/v2/top-headlines?country=jp&pageSize=100&apiKey=${process.env.REACT_APP_API_KEY}`
     );
     const data = await api.json();
 
-    localStorage.setItem('veggie', JSON.stringify(data.articles));
-    console.log(data);
-    setVeggie(data.articles);
+    localStorage.setItem('Article', JSON.stringify(data.articles));
+    setArticle(data.articles);
   };
 
   return (
     <div>
       <Wrapper>
-        <h3>Our Vegetarian picks</h3>
+        <h3>日本のボトムニュース</h3>
         <Splide
           options={{
             perPage: 3,
@@ -35,7 +34,7 @@ function Veggie() {
             gap: '5rem',
           }}
         >
-          {veggie
+          {article
             .slice()
             .reverse()
             .map((article) => {
@@ -49,6 +48,7 @@ function Veggie() {
                           description: article.description,
                           image: article.urlToImage,
                           url: article.url,
+                          title: article.title,
                         }}
                       >
                         <p>{article.title}</p>
@@ -110,4 +110,4 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
-export default Veggie;
+export default HomeNews;
