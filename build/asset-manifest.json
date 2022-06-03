@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Bottom-news-app/static/css/main.b7468f85.css",
-    "main.js": "/Bottom-news-app/static/js/main.9b16703b.js",
+    "main.js": "/Bottom-news-app/static/js/main.2f7d8659.js",
     "index.html": "/Bottom-news-app/index.html",
     "main.b7468f85.css.map": "/Bottom-news-app/static/css/main.b7468f85.css.map",
-    "main.9b16703b.js.map": "/Bottom-news-app/static/js/main.9b16703b.js.map"
+    "main.2f7d8659.js.map": "/Bottom-news-app/static/js/main.2f7d8659.js.map"
   },
   "entrypoints": [
     "static/css/main.b7468f85.css",
-    "static/js/main.9b16703b.js"
+    "static/js/main.2f7d8659.js"
   ]
 }
