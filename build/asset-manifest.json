@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Bottm-news-app/static/css/main.b7468f85.css",
-    "main.js": "/Bottm-news-app/static/js/main.b3a937d7.js",
+    "main.js": "/Bottm-news-app/static/js/main.1f1c871b.js",
     "index.html": "/Bottm-news-app/index.html",
     "main.b7468f85.css.map": "/Bottm-news-app/static/css/main.b7468f85.css.map",
-    "main.b3a937d7.js.map": "/Bottm-news-app/static/js/main.b3a937d7.js.map"
+    "main.1f1c871b.js.map": "/Bottm-news-app/static/js/main.1f1c871b.js.map"
   },
   "entrypoints": [
     "static/css/main.b7468f85.css",
-    "static/js/main.b3a937d7.js"
+    "static/js/main.1f1c871b.js"
   ]
 }

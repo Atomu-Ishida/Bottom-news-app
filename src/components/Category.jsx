@@ -10,32 +10,32 @@ import { NavLink } from 'react-router-dom';
 function Category() {
   return (
     <List>
-      <SLink to='/Bottom-news-app/category/sports'>
+      <SLink to='/category/sports'>
         <FcSportsMode />
         <h4>Sports</h4>
       </SLink>
 
-      <SLink to='/Bottom-news-app/category/business'>
+      <SLink to='/category/business'>
         <FcBusinessContact />
         <h4>Business</h4>
       </SLink>
 
-      <SLink to='/Bottom-news-app/category/science'>
+      <SLink to='/category/science'>
         <MdOutlineScience />
         <h4>Science</h4>
       </SLink>
 
-      <SLink to='/Bottom-news-app/category/health'>
+      <SLink to='/category/health'>
         <RiMentalHealthLine />
         <h4>Health</h4>
       </SLink>
 
-      <SLink to='/Bottom-news-app/category/entertainment'>
+      <SLink to='/category/entertainment'>
         <TiGroup />
         <h4>Entertainment</h4>
       </SLink>
 
-      <SLink to='/Bottom-news-app/category/technology'>
+      <SLink to='/category/technology'>
         <FaRobot />
         <h4>Technology</h4>
       </SLink>

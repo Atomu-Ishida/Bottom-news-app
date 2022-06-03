@@ -1,6 +1,6 @@
 import Pages from './pages/Pages';
 import Category from './components/Category';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Search from './components/Search';
 import styled from 'styled-components';
 import { FaRegNewspaper } from 'react-icons/fa';
@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 function App() {
   return (
     <div className='App'>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <Nav>
           <FaRegNewspaper />
-          <Logo to='/Bottom-news-app'> Bottom News</Logo>
+          <Logo to='/'> Bottom News</Logo>
         </Nav>
         <Explanation>
           トップを飾るようなニュースだけでなく、あまり注目が集まらないニュースにも目を向けて欲しいと思いこのサイトを作りました。
@@ -20,7 +20,7 @@ function App() {
         <Search />
         <Category />
         <Pages />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Search() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    navigate('/Bottom-news-app/searched/' + input);
+    navigate('/searched/' + input);
   };
 
   return (

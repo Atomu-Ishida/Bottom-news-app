@@ -11,16 +11,10 @@ function Pages() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes Location={location} key={location.pathname}>
-        <Route path='/Bottom-news-app' element={<Home />} />
-        <Route path='/Bottom-news-app/about' element={<About />} />
-        <Route
-          path='/Bottom-news-app/category/:type'
-          element={<CategoryNews />}
-        />
-        <Route
-          path='/Bottom-news-app/searched/:search'
-          element={<Searched />}
-        />
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/category/:type' element={<CategoryNews />} />
+        <Route path='/searched/:search' element={<Searched />} />
       </Routes>
     </AnimatePresence>
   );
