@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Nav>
           <FaRegNewspaper />
-          <Logo to='/'> Bottom News</Logo>
+          <Logo to='/Bottom-news-app'> Bottom News</Logo>
         </Nav>
         <Explanation>
           トップを飾るようなニュースだけでなく、あまり注目が集まらないニュースにも目を向けて欲しいと思いこのサイトを作りました。
