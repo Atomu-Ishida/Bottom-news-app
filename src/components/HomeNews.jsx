@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function HomeNews() {
   const [article, setArticle] = useState([]);
@@ -12,13 +13,10 @@ function HomeNews() {
   }, []);
 
   const getArticle = async () => {
-    const api = await fetch(
+    const api = await axios.get(
       `https://mighty-eyrie-27436.herokuapp.com/https://newsapi.org/v2/top-headlines?country=jp&pageSize=100&apiKey=${process.env.REACT_APP_API_KEY}`
     );
-    const data = await api.json();
-
-    localStorage.setItem('Article', JSON.stringify(data.articles));
-    setArticle(data.articles);
+    setArticle(api.data.articles);
   };
 
   return (
