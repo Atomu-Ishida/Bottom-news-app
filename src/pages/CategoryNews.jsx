@@ -9,7 +9,7 @@ function CategoryNews() {
 
   const getCategoryNews = async (name) => {
     const api = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=jp&category=${name}&pageSize=100&apiKey=${process.env.REACT_APP_API_KEY}`
+      `https://mighty-eyrie-27436.herokuapp.com/https://newsapi.org/v2/top-headlines?country=jp&category=${name}&pageSize=100&apiKey=${process.env.REACT_APP_API_KEY}`
     );
     const data = await api.json();
 

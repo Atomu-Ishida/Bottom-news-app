@@ -3,10 +3,10 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDXmlsy2tgZoqzV3JCftOh-2eKYC_Ihweo',
-  authDomain: 'resipe-for--trainee.firebaseapp.com',
-  projectId: 'resipe-for--trainee',
-  storageBucket: 'resipe-for--trainee.appspot.com',
-  messagingSenderId: '841541527188',
-  appId: '1:841541527188:web:464ccdb5ad4755a0277681',
+  apiKey: 'AIzaSyD6f1AHmEeiSpIbS5cuTEF9enTot4q7ODg',
+  authDomain: 'bottom-news-app.firebaseapp.com',
+  projectId: 'bottom-news-app',
+  storageBucket: 'bottom-news-app.appspot.com',
+  messagingSenderId: '986603615349',
+  appId: '1:986603615349:web:28b37e4ee0742d66ebf43c',
 };
