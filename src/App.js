@@ -6,15 +6,13 @@ import styled from 'styled-components';
 import { FaRegNewspaper } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const homeUrl = process.env.PUBLIC_URL;
-
 function App() {
   return (
     <div className='App'>
-      <HashRouter basename={homeUrl}>
+      <HashRouter>
         <Nav>
           <FaRegNewspaper />
-          <Logo to={homeUrl}> Bottom News</Logo>
+          <Logo to='/'> Bottom News</Logo>
         </Nav>
         <Explanation>
           トップを飾るようなニュースだけでなく、あまり注目が集まらないニュースにも目を向けて欲しいと思いこのサイトを作りました。
